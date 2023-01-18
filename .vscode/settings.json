@@ -1,0 +1,14 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "tiny.db.elephantsql.com",
+            "port": 5432,
+            "askForPassword": true,
+            "driver": "PostgreSQL",
+            "database": "spxkyotn",
+            "username": "spxkyotn",
+            "name": "Recipe"
+        }
+    ]
+}
