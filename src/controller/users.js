@@ -342,12 +342,12 @@ getComment: async (req,res,next)=>{
 },insertPhoto: async (req, res) => {
   try {
     const id = req.payload.id;
-    console.log("id_user", id);
+    console.log(id);
     const {
       photo: [photo],
     } = req.files;
     req.body.photo = photo.path;
-    await Modelusers.updatePhoto(id, req.body);
+    await Modelusers.updatePhoto(id, photo.path);
     return response(res, 200, true, req.body, "Update Photo Success");
   } catch (err) {
     console.log(err);
@@ -361,6 +361,41 @@ getComment: async (req,res,next)=>{
       response(res, 200, true, result.rows, "get data success")
     )
     .catch((err) => response(res, 404, false, err, "get data fail"));
+},updateRecipe: async (req, res) => {
+  // const id = req.payload.id;
+  const id_recipe = req.params.id_recipe
+  console.log(req.files)
+  console.log(req.body)
+  // const {
+  //   video: [video]
+  // } = req.files;
+  const {name_recipe,ingredients} = req.body
+  const {
+    photo: [photo],
+    video: [video]
+  } = req.files;
+  // req.body.photo = photo.path;
+  // req.body.video = video.path;
+  const data = {
+    id_recipe,
+    name_recipe,
+    ingredients,
+    video: video.path,
+    photo: photo.path
+  }
+  // const data = {
+  //     id_recipe,
+  //     name_recipe ,
+  //     ingredients,
+  //     video: "http//apaja.com",
+  //     photo: "http//sama.com"
+  //   }
+  // console.log(photo)
+  Modelusers.updateRecipe(data)
+    .then((result) =>
+      response(res, 200, false, result, "Update recipe Berhasil")
+    )
+    .catch((err) => response(res, 400, false, err, "Update recipa Gagal"));
 }}
 
 

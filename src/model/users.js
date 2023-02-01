@@ -174,6 +174,11 @@ const createPekerja = (data) => {
     const {name} = data
     return Pool.query(`SELECT * FROM recipe WHERE name_recipe ilike '%${name}%'`)
   }
+  const updateRecipe = data => {
+    const {photo,name_recipe,video,ingredients,id_recipe} =  data
+    console.log(data)
+    return Pool.query(`UPDATE recipe SET photo='${photo}',name_recipe='${name_recipe}',ingredients='${ingredients}',video='${video}' WHERE id_recipe='${id_recipe}'`);
+  };
 module.exports = {
     getusers,
     createPekerja,
@@ -191,5 +196,6 @@ module.exports = {
     PostComment,
     GetComment,
     updatePhoto,
-    getRecipe
+    getRecipe,
+    updateRecipe
 };

@@ -1,5 +1,6 @@
 const multer = require("multer");
 const storage = require("../config/cloudinary");
+const { updatePhoto } = require("../model/users");
 
 const upload = multer({
   storage: storage,
@@ -13,8 +14,16 @@ const upload = multer({
     maxCount: 1,
   },
 ]);
+const uploadPhoto = multer({
+  storage: storage,
+}).fields([
+  {
+    name: "photo",
+    maxCount: 1,
+  }
+]);
 
-module.exports = upload;
+module.exports = upload,updatePhoto;
 
 
 
