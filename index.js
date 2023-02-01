@@ -23,7 +23,7 @@ app.use(
 // app.use(cors());
 
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: "https://magical-meringue-f7f79e.netlify.app/",
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };
