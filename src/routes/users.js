@@ -15,6 +15,7 @@ router.get('/liked',protect,usersController.getLikedRecipe)
 router.get('/created',protect,usersController.getCreatedRecipe)
 router.get('/saved',protect,usersController.getSavedRecipe)
 router.put('/update-photo',protect,updatePhoto, usersController.insertPhoto)
+router.get('/alluser', usersController.allUser)
 
 
 

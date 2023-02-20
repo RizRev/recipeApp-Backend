@@ -396,6 +396,12 @@ getComment: async (req,res,next)=>{
       response(res, 200, false, result, "Update recipe Berhasil")
     )
     .catch((err) => response(res, 400, false, err, "Update recipa Gagal"));
+},allUser: async(req,res,next) => {
+  Modelusers.getusers()
+  .then((result) =>
+      response(res, 200, false, result.rows, "get user Berhasil")
+    )
+    .catch((err) => response(res, 400, false, err, "Update recipa Gagal"));
 }}
 
 
